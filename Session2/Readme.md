@@ -1,28 +1,68 @@
+# 🍏🥃 ML Classifiers from Scratch — KNN & Decision Tree
 
-# 🍷 Beverage Classifier using Decision Tree (from Scratch)
+This project showcases two classic machine learning classifiers — implemented **from scratch** using only **Python** and **NumPy**. These models are built to classify:
 
-This project implements a basic **Decision Tree Classifier from scratch** in Python (using numpy) to classify beverages like **Beer, Wine, and Whiskey** based on their chemical properties.
+- 🍎 Fruits (Apple, Banana, Orange) using **K-Nearest Neighbors (KNN)**
+- 🥃 Beverages (Beer, Wine, Whiskey) using a **Decision Tree**
 
----
-📌 Features
-
-- Decision Tree built using only `NumPy`
-- Gini Impurity for best splits
-- Manual recursive implementation of `build_tree()` and `predict()`
-- Tree visualization using `matplotlib`
-- Works on small numeric datasets
+Both implementations are designed for learning and conceptual clarity — no external ML libraries like `scikit-learn` are used.
 
 ---
 
-Functions Used
+## 🧠 Implemented Models
 
-build_tree(x, y): Recursively builds the decision tree based on the provided features (x) and labels (y).
-best_split(x, y): Finds the best feature and threshold using Gini impurity to split the dataset.
-find_gini_impurity(labels): Calculates the Gini impurity for a set of labels, used to evaluate the quality of a split.
-most_common_label(y): Finds the most frequent class label in the dataset, used for leaf nodes.
-predict(node, x_test): Traverses the decision tree and predicts the class label for the input data point (x_test).
-plot_tree(node): Visualizes the decision tree using matplotlib, plotting the tree structure.
+### 🔹 1. K-Nearest Neighbors (KNN) — Fruit Classifier
 
+Classifies fruits based on **weight**, **size**, and **color**.
 
-Built as part of EPOCh Spring Camp session to understand decision trees from the ground up!
+#### 📌 Features
+- Built using only `NumPy`
+- Calculates **Euclidean distance** for similarity
+- Uses **majority voting** to decide the predicted class
+- Custom `KNN` class with methods: `fit`, `predict`, `predict_one`
+- Configurable `k` (number of neighbors)
+- Toy dataset included for experimentation
 
+#### 🔧 Key Functions
+- `euclidean_distance(x1, x2)`: Distance metric
+- `KNN(k=3)`: Classifier with `fit`, `predict`, and `predict_one`
+- `label_encoding` & `data_preprocessing`: Converts string labels into numeric form and separates features from labels
+
+#### 🧪 Testing
+- Evaluate predictions on test samples with known expected outcomes
+- Try different `k` values to observe prediction changes
+
+---
+
+### 🔸 2. Decision Tree — Beverage Classifier
+
+Classifies beverages based on chemical properties using a decision tree built with **Gini impurity**.
+
+#### 📌 Features
+- Recursive decision tree construction
+- Uses **Gini impurity** to select optimal feature-threshold splits
+- Custom tree nodes (internal and leaf)
+- Full implementation of prediction logic
+- Visualizes tree using `matplotlib` (optional)
+- Works on numeric datasets
+
+#### 🔧 Key Functions
+- `build_tree(x, y)`: Builds the decision tree recursively
+- `best_split(x, y)`: Finds best feature and threshold
+- `find_gini_impurity(labels)`: Measures impurity of a split
+- `most_common_label(y)`: Used for leaf nodes
+- `predict(node, x_test)`: Traverses the tree to predict class label
+- `plot_tree(node)`: Visualizes the tree using `matplotlib`
+
+---
+
+## 🚀 How to Run
+
+### Requirements
+- Python 3.x
+- NumPy
+
+### Running KNN Classifier
+
+```bash
+python knn_classifier.py
